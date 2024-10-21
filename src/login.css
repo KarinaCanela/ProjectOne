@@ -3,22 +3,54 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 /* Estilos generales del cuerpo */
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; 
+} */
+
+.title {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size:60px;
+    font-family: "Gowun Dodum", sans-serif;
+    text-emphasis: double-circle open;
+    color: aliceblue;
+}
+
+/* Contenedor principal */
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    overflow: hidden;
+}
+  
+/* Video de fondo */
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para asegurarse que el video cubra todo */
+    transform: translate(-50%, -50%); /* Centra el video */
+    z-index: -1; /* Envía el video al fondo */
 }
 
 /* Contenedor del formulario */
 .container {
+    margin-left: 50%;
+    margin-top: 25%;
+    position: relative;
+    z-index: 1; /* Para que el contenido esté sobre el video */
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
