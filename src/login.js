@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import './login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import video from './Assets/videobkgd.mp4'
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordShown(!passwordShown);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault(); // Evitar el envío por defecto del formulario
@@ -51,17 +58,22 @@ function Login() {
           <div className="input-group">
             <label htmlFor="password">Contraseña</label>
             <input
-              type="password"
+              type={passwordShown ? "text" : "password"}
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)} // Guardar el valor del password en el estado
               required
             />
+            <FontAwesomeIcon
+              icon={passwordShown ? faEyeSlash : faEye}
+              onClick={togglePasswordVisibility}
+              className="toggle-password-icon"
+            />
           </div>
           <button type="submit">Entrar</button>
           <p className="signup-text">¿No tienes cuenta? <a href="#">Regístrate</a></p>
         </form>
-    </div>
+      </div>
     </div>
     
   );

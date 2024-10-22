@@ -15,12 +15,15 @@
 } */
 
 .title {
-    margin-top: 10px;
+    margin-top: 25px;
     font-weight: 400;
     font-size:60px;
-    font-family: "Gowun Dodum", sans-serif;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
     text-emphasis: double-circle open;
     color: aliceblue;
+    padding-bottom: 30px;
 }
 
 /* Contenedor principal */
@@ -45,14 +48,13 @@
 
 /* Contenedor del formulario */
 .container {
-    margin-left: 50%;
-    margin-top: 25%;
+    margin: auto;
     position: relative;
     z-index: 1; /* Para que el contenido esté sobre el video */
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -61,7 +63,7 @@
 .login-form h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: white;
 }
 
 /* Grupo de entrada */
@@ -74,7 +76,7 @@
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333;
+    color: white;
 }
 
 /* Campos de entrada */
@@ -91,6 +93,15 @@
 .input-group input:focus {
     border-color: #007BFF;
 }
+
+.toggle-password-icon {
+    position: absolute;
+    right: 30px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #007bff;
+  }
 
 /* Botón de enviar */
 button {
@@ -114,6 +125,7 @@ button:hover {
 .signup-text {
     text-align: center;
     margin-top: 15px;
+    color: white;
 }
 
 .signup-text a {
@@ -130,13 +142,17 @@ button:hover {
     margin-bottom: 10px;
     font-size: 14px;
 }
-  
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
         max-width: 350px;
+        margin: auto
+    }
+
+    .title {
+        margin-top: 5%;
     }
 
     .login-form h2 {
@@ -152,7 +168,15 @@ button:hover {
     .container {
         padding: 10px;
         max-width: 300px;
+        margin: auto;
+        
     }
+
+    .title {
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
+
 
     .login-form h2 {
         font-size: 18px;
