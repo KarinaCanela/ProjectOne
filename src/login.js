@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import video from './Assets/videobkgd.mp4'
+import video from './Assets/videobkgd.mp4';
+import Registro from './registro.js';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -31,6 +33,12 @@ function Login() {
     // Si pasa las validaciones, puedes hacer el login
     setError(''); // Limpiar cualquier error anterior
     alert('Inicio de sesión exitoso');
+  };
+
+  const [isLogin, setIsLogin] = useState(true);
+
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
   };
 
   return (
@@ -71,10 +79,28 @@ function Login() {
             />
           </div>
           <button type="submit">Entrar</button>
-          <p className="signup-text">¿No tienes cuenta? <a href="#">Regístrate</a></p>
+
+          {/* <div className="App">
+            {isLogin ? <Login /> : <Registro />}  {/* Cambia entre login y registro }
+            <button onClick={toggleForm}>
+              {isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
+            </button> 
+          </div> */}
+          <Router>
+            <Link to='/registro' onClick={toggleForm} className='signup-text'>
+              {isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
+            </Link>
+      
+            <Routes>
+              <Route path='/registro' element={isLogin ? <Login /> : <Registro />}/>
+            </Routes>
+          </Router>
+          
         </form>
       </div>
     </div>
+
+  
     
   );
 }
